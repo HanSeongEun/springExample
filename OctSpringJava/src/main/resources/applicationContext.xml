@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 컨테이너 설정 파일 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+	<!--컨테이너가 bean 객체 생성 -->
+	<bean name="articleDao" class="spring.chap01.MySQLArticleDao"/>
+	<bean id="articleDao2" class="spring.chap01.OracleArticleDao"/>
+	
+	<bean id="writeArticleService" class="spring.chap01.WriteArticleServiceImpl"
+		p:articleDao-ref = "articleDao"/>
+	
+	<!-- <bean id="writeArticleService"
+		class="spring.chap01.WriteArticleServiceImpl">
+		<constructor-arg>
+			<ref bean="articleDao2" />
+		</constructor-arg>
+	</bean> -->
+</beans>
