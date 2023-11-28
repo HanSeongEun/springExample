@@ -1,16 +1,18 @@
 package spring.di;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class Main {
 
 	public static void main(String[] args) {
-		ApplicationContext context = new GenericXmlApplicationContext("diTest.xml");
+		AbstractApplicationContext context = new GenericXmlApplicationContext("diTest.xml");
 
 		Foo f = (Foo) context.getBean("foo1");
 		f.doFoo();
 		
+		System.out.println("=========================");
 		Foo f2 = context.getBean("foo2", Foo.class);
 		System.out.println(f2.i);
 		System.out.println(f2.str);
@@ -33,6 +35,8 @@ public class Main {
 		Fooo f6 = context.getBean("fooo4", Fooo.class);
 		System.out.println(f6.i);
 		System.out.println(f6.str);
+		
+		context.registerShutdownHook();
 	}
 
 }

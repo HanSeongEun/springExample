@@ -5,7 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id = "bar" class = "spring.di.Bar"/>
-	<bean id = "baz" class = "spring.di.Baz"/>
+	<bean id = "baz" class = "spring.di.Baz"
+		init-method="start" destroy-method="stop"
+	/>
 	<bean id = "bar2" class = "spring.di.Bar" autowire-candidate="false"/>
 	
 	<bean id="fooo4" class="spring.di.Fooo" autowire="byType"
