@@ -1,6 +1,12 @@
 package spring.chap01;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("writeArticleService")
 public class WriteArticleServiceImpl implements WriteArticleService {
+	
+	@Autowired
 	private ArticleDao articleDao;// 구현 객체 저장
 
 	public void setArticleDao(ArticleDao articleDao) {

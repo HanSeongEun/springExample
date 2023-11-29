@@ -3,14 +3,20 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context.xsd">
 		
-	<!--컨테이너가 bean 객체 생성 -->
+		
+	<context:component-scan base-package="spring.chap01"/> 
+	<!--컨테이너가 bean 객체 생성 
 	<bean name="articleDao" class="spring.chap01.MySQLArticleDao"/>
 	<bean id="articleDao2" class="spring.chap01.OracleArticleDao"/>
 	
 	<bean id="writeArticleService" class="spring.chap01.WriteArticleServiceImpl"
-		p:articleDao-ref = "articleDao"/>
+		p:articleDao-ref = "articleDao"/>-->
 	
 	<!-- <bean id="writeArticleService"
 		class="spring.chap01.WriteArticleServiceImpl">
